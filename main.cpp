@@ -2,7 +2,7 @@
 
 int main() {
     int command;
-    Prog3::Sequence tmp;
+    Prog3A::Sequence tmp;
 
     std::cout << "0. Exit" << std::endl;
     std::cout << "1. Empty constructor" << std::endl;
@@ -24,28 +24,28 @@ int main() {
                 std::cout << "EXIT!" << std::endl;
                 break;
             case 1:
-                tmp = emptyConstructor();
+                emptyConstructor(&tmp);
                 break;
             case 2:
-                tmp = firstConstructor();
+                firstConstructor(&tmp);
                 break;
             case 3:
-                tmp = secondConstructor();
+                secondConstructor(&tmp);
                 break;
             case 4:
-                tmp = inputSequence();
+                inputSequence(&tmp);
                 break;
             case 5:
                 outputSequence(tmp);
                 break;
             case 6:
-                tmp = combiningTwoSequence();
+                combiningTwoSequence(&tmp);
                 break;
             case 7:
                 findingSubsequence(tmp);
                 break;
             case 8:
-                tmp = pushElement(tmp);
+                pushElement(&tmp);
                 break;
             case 9:
                 determiningGroups(tmp);

@@ -1,6 +1,6 @@
 #include "sequence.h"
 
-namespace Prog3 {
+namespace Prog3A {
     // 3. Создание экземпляров класса с инициализацией размером и значениями элементов последовательности.
     Sequence::Sequence(int sz, const int* a) : sq{0}
     {
@@ -20,7 +20,7 @@ namespace Prog3 {
         int sz, el;
         std::cout << "Enter the number of elements in sequence: ->";
         in >> sz;
-        if (sz < 0 || sz > Prog3::Sequence::SZ)
+        if (sz < 0 || sz > Prog3A::Sequence::SZ)
             throw std::length_error("Illegal size for sequence!");
         else
         {
@@ -47,7 +47,7 @@ namespace Prog3 {
     }
 
     // 6. Объединение двух последовательностей в одну; в результате формируется новый вектор с сохранением исходных.
-    Sequence & Sequence::add(Sequence a, Sequence b)
+    void Sequence::add(Sequence a, Sequence b)
     {
         if (a.cnt + b.cnt > SZ)
             throw std::length_error("Sequence is full!");
@@ -60,16 +60,13 @@ namespace Prog3 {
                 sq[i] = b.sq[i - cnt];
             cnt += b.cnt;
         }
-        return *this;
     }
 
-
-    // !!! NOT READY !!!
     // 7. Выделение первой упорядоченной по возрастанию или по убыванию последовательности длиной не менее трёх элементов.
     Sequence Sequence::sub(int opt)
     {
         int signal = 0;
-        Prog3::Sequence ptr;
+        Prog3A::Sequence ptr;
         if (cnt < 3)
             throw std::length_error("Sequence too small!");
         for (int i = 0; i < cnt; i++)

@@ -1,24 +1,24 @@
 #include "menu.h"
 
 // 1.
-Prog3::Sequence emptyConstructor()
+void emptyConstructor(Prog3A::Sequence *ptr)
 {
-    Prog3::Sequence ptr;
-    return ptr;
+    Prog3A::Sequence tmp;
+    *ptr = tmp;
 }
 
 // 2.
-Prog3::Sequence firstConstructor()
+void firstConstructor(Prog3A::Sequence *ptr)
 {
     int el;
     std::cout << "Enter element of the sequence: ->";
     getNum(el);
-    Prog3::Sequence ptr(el);
-    return ptr;
+    Prog3A::Sequence tmp(el);
+    *ptr = tmp;
 }
 
 // 3.
-Prog3::Sequence secondConstructor()
+void secondConstructor(Prog3A::Sequence *ptr)
 {
     int sz;
     std::cout << "Enter the number of elements in the sequence: ->";
@@ -27,36 +27,32 @@ Prog3::Sequence secondConstructor()
     std::cout << "Enter the elements of the sequence: ->";
     for (int i = 0; i < sz; i++)
         std::cin >> val[i];
-    Prog3::Sequence ptr;
     try
     {
-        Prog3::Sequence tmp(sz, val);
-        ptr = tmp;
+        Prog3A::Sequence tmp(sz, val);
+        *ptr = tmp;
     }
     catch (std::length_error &lengthError)
     {
         std::cout << lengthError.what() << std::endl;
     }
-    return ptr;
 }
 
 // 4.
-Prog3::Sequence inputSequence()
+void inputSequence(Prog3A::Sequence *ptr)
 {
-    Prog3::Sequence ptr;
     try
     {
-            std::cin >> ptr;
+            std::cin >> *ptr;
     }
     catch (std::length_error &lengthError)
     {
         std::cout << lengthError.what() << std::endl;
     }
-    return ptr;
 }
 
 // 5.
-void outputSequence(Prog3::Sequence ptr)
+void outputSequence(Prog3A::Sequence ptr)
 {
     try
     {
@@ -69,27 +65,26 @@ void outputSequence(Prog3::Sequence ptr)
 }
 
 // 6.
-Prog3::Sequence combiningTwoSequence()
+void combiningTwoSequence(Prog3A::Sequence *ptr)
 {
-    Prog3::Sequence a, b, ptr;
-    a = inputSequence();
-    b = inputSequence();
+    Prog3A::Sequence a, b;
+    inputSequence(&a);
+    inputSequence(&b);
     try
     {
-        ptr.add(a, b);
+        ptr->add(a, b);
     }
     catch (std::length_error &lengthError)
     {
         std::cout << lengthError.what() << std::endl;
     }
-    return ptr;
 }
 
 // 7.
-void findingSubsequence(Prog3::Sequence ptr)
+void findingSubsequence(Prog3A::Sequence ptr)
 {
     int opt;
-    Prog3::Sequence ans;
+    Prog3A::Sequence ans;
     std::cout << "1. Find an increasing subsequence" << std::endl;
     std::cout << "2. Find a decreasing subsequence" << std::endl;
     do {
@@ -108,30 +103,29 @@ void findingSubsequence(Prog3::Sequence ptr)
 }
 
 // 8.
-Prog3::Sequence pushElement(Prog3::Sequence ptr)
+void pushElement(Prog3A::Sequence *ptr)
 {
     int el;
     std::cout << "Enter element of the sequence: ->";
     getNum(el);
     try
     {
-        ptr.push(el);
+        ptr->push(el);
     }
     catch (std::length_error &lengthError)
     {
         std::cout << lengthError.what() << std::endl;
     }
-    return ptr;
 }
 
 // 9.
-void determiningGroups(Prog3::Sequence ptr)
+void determiningGroups(Prog3A::Sequence ptr)
 {
     std::cout << "Number of groups in the sequence: ->" << ptr.group() << std::endl;
 }
 
 // 10.
-void determiningFrequency(Prog3::Sequence ptr)
+void determiningFrequency(Prog3A::Sequence ptr)
 {
     int el;
     std::cout << "Enter element of the sequence: ->";

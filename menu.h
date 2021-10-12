@@ -25,15 +25,15 @@ int getNum(T &a)
     }
 }
 
-Prog3::Sequence emptyConstructor();
-Prog3::Sequence firstConstructor();
-Prog3::Sequence secondConstructor();
-Prog3::Sequence inputSequence();
-void outputSequence(Prog3::Sequence ptr);
-Prog3::Sequence combiningTwoSequence();
-void findingSubsequence(Prog3::Sequence ptr);
-Prog3::Sequence pushElement(Prog3::Sequence ptr);
-void determiningGroups(Prog3::Sequence ptr);
-void determiningFrequency(Prog3::Sequence ptr);
+void emptyConstructor(Prog3A::Sequence *ptr);
+void firstConstructor(Prog3A::Sequence *ptr);
+void secondConstructor(Prog3A::Sequence *ptr);
+void inputSequence(Prog3A::Sequence *ptr);
+void outputSequence(Prog3A::Sequence ptr);
+void combiningTwoSequence(Prog3A::Sequence *ptr);
+void findingSubsequence(Prog3A::Sequence ptr);
+void pushElement(Prog3A::Sequence *ptr);
+void determiningGroups(Prog3A::Sequence ptr);
+void determiningFrequency(Prog3A::Sequence ptr);
 
 #endif //PROG3_MENU_H
